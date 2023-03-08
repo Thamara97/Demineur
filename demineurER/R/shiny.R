@@ -30,5 +30,4 @@ server <- function(input, output, session) {
     board() <- matrix(rep(" ", 100), ncol = 10, nrow = 10)
   })
 }
-
 shinyApp(ui, server)
