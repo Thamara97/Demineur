@@ -22,6 +22,7 @@ ui <- fluidPage(
     ),
 
     mainPanel(
+
       tableOutput("board0"),
       tableOutput("board1")
     )
