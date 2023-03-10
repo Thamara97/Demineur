@@ -6,12 +6,12 @@ grille <- function(L, C, nbr_bombe){
 
   g <- matrix(0, nrow = L, ncol = C)
 
-  # positionnement des bombes dans la g
+  # positionnement des bombes dans la grille
   for (i in 1:nbr_bombe) {
     g[positions[i,1], positions[i,2]] <-"bombe"
   }
 
-  # positionnement des nombres dans l’intérieur de la g
+  # positionnement des nombres dans l'intérieure de la grille
   for (i in 2:(L-1)) {
     for (j in 2:(C-1)) {
       if (g[i,j] !="bombe") {
