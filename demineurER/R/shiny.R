@@ -4,7 +4,7 @@ ui <- fluidPage(
   titlePanel("Démineur"),
   sidebarLayout(
     sidebarPanel(
-      sliderInput("n_mines", "Nombre de mines :", min = 10, max = 100, value = 30),
+      sliderInput("n_mines", "Nombre de mines :", min = 10, max = 50, value = 20),
       actionButton("reset", "Nouvelle partie")
     ),
     mainPanel(
@@ -17,17 +17,19 @@ server <- function(input, output, session) {
   n_mines <- reactive({
     input$n_mines
   })
-  
+
   board <- reactive({
-    matrix(rep(" ", 100), ncol = 10, nrow = 10)
+    matrix(rep(" ", 100), ncol = 30, nrow = 30)
   })
-  
+
   output$board <- renderTable({
     board()
   })
-  
+
   observeEvent(input$reset, {
-    board() <- matrix(rep(" ", 100), ncol = 10, nrow = 10)
+    board() <- matrix(rep(" ", 100), ncol = 20, nrow = 20)
+
   })
 }
+
 shinyApp(ui, server)
