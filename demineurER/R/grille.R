@@ -1,16 +1,13 @@
-grille <- function(L, C){
-
-  # nombre de bombes
-  nbombe <- L*C/4
+grille <- function(L, C, nbr_bombe){
 
   # positions des bombes
-  positions <- cbind(sample(1:L, size = nbombe, replace = TRUE),
-                     sample(1:C, size = nbombe, replace = TRUE))
+  positions <- cbind(sample(1:L, size = nbr_bombe, replace = TRUE),
+                     sample(1:C, size = nbr_bombe, replace = TRUE))
 
   g <- matrix(0, nrow = L, ncol = C)
 
   # positionnement des bombes dans la g
-  for (i in 1:nbombe) {
+  for (i in 1:nbr_bombe) {
     g[positions[i,1], positions[i,2]] <-"bombe"
   }
 
@@ -42,9 +39,5 @@ grille <- function(L, C){
   if (g[L,1] !="bombe") {g[L,1] <- sum(g[(L-1):L,1:2]=="bombe")}
 
   return(g)
-}
-
-plateau <- function(L, C){
-  p <- matrix(".",nrow = L, ncol = C)
 }
 
