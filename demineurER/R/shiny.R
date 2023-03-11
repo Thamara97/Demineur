@@ -2,6 +2,7 @@ library(shiny)
 library(shinyjs)
 
 ui <- fluidPage(
+
   titlePanel("Démineur"),
 
   sidebarLayout(
@@ -22,6 +23,7 @@ ui <- fluidPage(
     ),
 
     mainPanel(
+      useShinyjs(),
 
       tableOutput("board0"),
       tableOutput("board1")
@@ -44,18 +46,23 @@ server <- function(input, output, session) {
 
   G <- eventReactive(input$reset, {grille(L(), C(), n_mines())})
 
-  observeEvent(input$reset, {hide("board1")})
-
   output$board0 <- renderTable({
     board()
   }, colnames = FALSE)
 
   x <- eventReactive(input$go, {input$case})
-  observeEvent(input$go, {hide("board0")})
+  observeEvent(input$go, {
+    hide("board0")
+    show("board1")})
 
   output$board1 <- renderTable({
-    creuser(board(), G(), x())
+     creuser(board(), G(), x())
   },colnames = FALSE)
+
+  observeEvent(input$reset, {
+    hide("board1")
+    show("board0")})
+
 }
 
 shinyApp(ui, server)
