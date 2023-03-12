@@ -26,7 +26,7 @@ ui <- fluidPage(
       useShinyjs(),
 
       tableOutput("board0"),
-      tableOutput("board1")
+      tableOutput("board1"),
     )
   )
 )
@@ -50,18 +50,28 @@ server <- function(input, output, session) {
     board()
   }, colnames = FALSE)
 
-  x <- eventReactive(input$go, {input$case})
+  values <- reactiveValues(n = 0, c = c())
+
   observeEvent(input$go, {
+    values$c[values$n] <- {input$case}
+    values$n <- values$n +1
     hide("board0")
-    show("board1")})
+    show("board1")
+  })
 
   output$board1 <- renderTable({
-     creuser(board(), G(), x())
+    B <- board()
+    for (x in values$c) {
+      B <- creuser(B, G(), x)
+    }
+    return(B)
   },colnames = FALSE)
 
   observeEvent(input$reset, {
     hide("board1")
-    show("board0")})
+    show("board0")
+    values$n <- 0
+    values$c <- c()})
 
 }
 
