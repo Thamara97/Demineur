@@ -19,12 +19,12 @@ ui <- fluidPage(
 
       numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
 
-      actionButton("go","Creuser", icon = icon("trowel"))
+      actionButton("go","Creuser", icon = icon("trowel")),
+      actionButton("drap","flag 🏳")
     ),
 
     mainPanel(
       useShinyjs(),
-
       tableOutput("board0"),
       tableOutput("board1")
     )
