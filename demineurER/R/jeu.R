@@ -3,33 +3,35 @@ creuser <- function(plateau, grille, case){
   L <- nrow(plateau)
   C <- nrow(plateau)
 
+  x <- which(plateau==case, arr.ind = TRUE)[1]
+  y <- which(plateau==case, arr.ind = TRUE)[2]
+
   if (grille[case] != "bombe") {
-    plateau[case] <- paste(grille[case], "bombe", sep="")
-    if (grille[case] == "0") {plateau <-  astuce(plateau, grille, case)}
+
+    plateau[case] <- paste0(grille[case],"b")
+
+    if (grille[case] == "0") {
+
+      taille <- c(max(1, x-1), min(L, x+1), max(1, y-1), min(C, y+1))
+
+      g <- grille[taille[1]:taille[2] , taille[3]:taille[4]]
+      p <- plateau[taille[1]:taille[2] , taille[3]:taille[4]]
+
+      L1 <- nrow(g)
+      C1 <- ncol(g)
+
+      for (i in 1:(C1*L1)) {if (g[i]=="0") {p[i] <- paste0(g[i], "b")}}
+
+      plateau[taille[1]:taille[2] , taille[3]:taille[4]] <- p
+
+    }
+
     return(plateau)
+
   }
 
-  else {
-    return(grille)
-  }
+  else {return(grille)}
 
-}
-
-astuce <- function(plateau, grille, case) {
-
-  L <- nrow(plateau)
-  C <- ncol(plateau)
-
-  if (case-1 > 0) {if (grille[case-1]=="0") {plateau[case-1] <- "0bombe"}}
-  if (case+1 < L*C+1) {if (grille[case+1]=="0") {plateau[case+1] <- "0bombe"}}
-  if (case-L > 0) {if (grille[case-L]=="0") {plateau[case-L] <- "0bombe"}}
-  if (case+L < L*C+1) {if (grille[case+L]=="0") {plateau[case+L] <- "0bombe"}}
-  if (case+L+1 < L*C+1) {if (grille[case+L+1]=="0") {plateau[case+L+1] <- "0bombe"}}
-  if (case+L-1 < L*C+1) {if (grille[case+L-1]=="0") {plateau[case+L-1] <- "0bombe"}}
-  if (case-L+1 > 0) {if (grille[case-L+1]=="0") {plateau[case-L+1] <- "0bombe"}}
-  if (case-L-1 > 0) {if (grille[case-L-1]=="0") {plateau[case-L-1] <- "0bombe"}}
-
-  return(plateau)
 }
 drapeau <- function(plateau,case)
   if(plateau[case]==  paste0("flag(",case,")")){plateau[case] <- case}
