@@ -9,8 +9,6 @@ ui <- fluidPage(
 
     sidebarPanel(
 
-      sliderInput("n_mines", "Nombre de mines :", min = 10, max = 100, value = 10),
-
       sliderInput('ligne', "Nombre de lignes :", 5, min = 4, max = 30),
 
       sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
@@ -20,22 +18,19 @@ ui <- fluidPage(
       numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
 
       actionButton("go","Creuser", icon = icon("trowel")),
-      actionButton("drap","flag 🏳")
+      actionButton("drap","flag 🏳"),
+      textOutput("text")
     ),
 
     mainPanel(
       useShinyjs(),
       tableOutput("board0"),
-      tableOutput("board1")
+      tableOutput("board1"),
     )
   )
 )
 
 server <- function(input, output, session) {
-
-  n_mines <- reactive({
-    input$n_mines
-  })
 
   L <- reactive({input$ligne})
   C <- reactive({input$colonne})
@@ -44,7 +39,7 @@ server <- function(input, output, session) {
     matrix(1:(L()*C()), nrow=L(), ncol=C())
   })
 
-  G <- eventReactive(input$reset, {grille(L(), C(), n_mines())})
+  G <- eventReactive(input$reset, {grille(L(), C())})
 
   output$board0 <- renderTable({
     board()
@@ -58,6 +53,7 @@ server <- function(input, output, session) {
     hide("board0")
     show("board1")
   })
+
   values1 <- reactiveValues(n1 = 0, c1 = c())
   observeEvent(input$drap, {
     values1$c1[values1$n1] <- {input$case}
@@ -82,6 +78,10 @@ server <- function(input, output, session) {
     show("board0")
     values$n <- 0
     values$c <- c()})
+
+  bombe <- eventReactive(input$reset, {nbr_bombe(G())})
+
+  output$text <- renderText({paste0("Il y a ", bombe(), " bombes")})
 
 }
 

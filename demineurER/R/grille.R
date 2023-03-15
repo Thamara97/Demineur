@@ -1,4 +1,6 @@
-grille <- function(L, C, nbr_bombe){
+grille <- function(L, C){
+
+  nbr_bombe <- L*C/5
 
   # positions des bombes
   positions <- cbind(sample(1:L, size = nbr_bombe, replace = TRUE),
@@ -25,4 +27,8 @@ grille <- function(L, C, nbr_bombe){
   }
 
   return(g)
+}
+
+nbr_bombe <- function(grille) {
+  return(sum(grille=="bombe"))
 }
