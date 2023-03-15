@@ -58,12 +58,22 @@ server <- function(input, output, session) {
     hide("board0")
     show("board1")
   })
+  values1 <- reactiveValues(n1 = 0, c1 = c())
+  observeEvent(input$drap, {
+    values1$c1[values1$n1] <- {input$case}
+    values1$n1 <- values1$n1 +1
+    hide("board0")
+    show("board1")
+  })
 
   output$board1 <- renderTable({
     B <- board()
     for (x in values$c) {
       B <- creuser(B, G(), x)
     }
+    for (y in values1$c1) {
+      B <- drapeau(B,y)
+      }
     return(B)
   },colnames = FALSE)
 
@@ -72,6 +82,7 @@ server <- function(input, output, session) {
     show("board0")
     values$n <- 0
     values$c <- c()})
+
 }
 
 shinyApp(ui, server)
