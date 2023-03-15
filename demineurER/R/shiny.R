@@ -17,7 +17,7 @@ ui <- fluidPage(
 
       actionButton("reset", "Nouvelle partie"),
 
-      numericInput('case', "Case à creuser :", 1, min = 1, max = 30),
+      numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
 
       actionButton("go","Creuser", icon = icon("trowel"))
     ),
@@ -26,7 +26,7 @@ ui <- fluidPage(
       useShinyjs(),
 
       tableOutput("board0"),
-      tableOutput("board1"),
+      tableOutput("board1")
     )
   )
 )
@@ -72,7 +72,6 @@ server <- function(input, output, session) {
     show("board0")
     values$n <- 0
     values$c <- c()})
-
 }
 
 shinyApp(ui, server)
