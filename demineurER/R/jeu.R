@@ -31,3 +31,6 @@ astuce <- function(plateau, grille, case) {
 
   return(plateau)
 }
+drapeau <- function(plateau,case)
+  if(plateau[case]==  paste0("flag(",case,")")){plateau[case] <- case}
+  else{plateau[case] <- paste0("flag(",case,")")}return(plateau)
