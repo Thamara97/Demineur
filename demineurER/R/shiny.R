@@ -9,7 +9,7 @@ ui <- fluidPage(
 
     sidebarPanel(
 
-      sliderInput("n_mines", "Nombre de mines :", min = 10, max = 100, value = 10),
+      sliderInput("n_mines", "Nombre de mines maximums:", min = 10, max = 100, value = 10),
 
       sliderInput('ligne', "Nombre de lignes :", 5, min = 4, max = 30),
 
