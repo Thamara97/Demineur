@@ -9,11 +9,6 @@ ui <- fluidPage(
 
     sidebarPanel(
 
-<<<<<<< HEAD
-=======
-      sliderInput("n_mines", "Nombre de mines maximums:", min = 10, max = 100, value = 10),
-
->>>>>>> 58e30da8fb8048d046e6820f34781cb8bb014661
       sliderInput('ligne', "Nombre de lignes :", 5, min = 4, max = 30),
 
       sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
@@ -30,7 +25,7 @@ ui <- fluidPage(
     mainPanel(
       useShinyjs(),
       tableOutput("board0"),
-      tableOutput("board1"),
+      tableOutput("board1")
     )
   )
 )
@@ -63,8 +58,6 @@ server <- function(input, output, session) {
   observeEvent(input$drap, {
     values1$c1[values1$n1] <- {input$case}
     values1$n1 <- values1$n1 +1
-    hide("board0")
-    show("board1")
   })
 
   output$board1 <- renderTable({
