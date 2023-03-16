@@ -55,7 +55,7 @@ creuser <- function(plateau, grille, case){
 #' @export
 
 drapeau <- function(plateau,case){
-  if(plateau[case]==  paste0("🏳(",case,")")){plateau[case] <- case}
-  else{plateau[case] <- paste0("🏳(",case,")")}
+  if(plateau[case]==  paste0("🚩(",case,")")){plateau[case] <- case}
+  else{plateau[case] <- paste0("🚩(",case,")")}
   return(plateau)
 }

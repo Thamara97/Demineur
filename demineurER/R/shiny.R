@@ -2,6 +2,17 @@ library(shiny)
 library(shinyjs)
 
 ui <- fluidPage(
+  tags$head(
+  tags$style(HTML("
+  body {background-color:#CCFFFF;}
+                 #reset{color: white;
+                 background-color: orange;}
+
+                 #drap{color:green; background-color:green;}
+                  #go{color:green;background-color:white;
+                ")
+
+  )),
 
   titlePanel("Démineur"),
 
@@ -18,7 +29,7 @@ ui <- fluidPage(
       numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
 
       actionButton("go","Creuser", icon = icon("trowel")),
-      actionButton("drap","flag 🏳"),
+      actionButton("drap","🚩"),
       textOutput("text")
     ),
 
@@ -79,8 +90,12 @@ server <- function(input, output, session) {
 
   bombe <- eventReactive(input$reset, {nbr_bombe(G())})
 
+<<<<<<< HEAD
   output$text <- renderText({paste0("Il y a ", bombe(), "💣")})
 
+=======
+  output$text <- renderText({paste0("Il y a ", bombe(), " bombes")})
+>>>>>>> 003126d416e01eba30cde3a29147952fcfe5bd85
 }
 
 shinyApp(ui, server)
