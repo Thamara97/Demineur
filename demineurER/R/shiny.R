@@ -4,12 +4,13 @@ library(shinyjs)
 ui <- fluidPage(
   tags$head(
   tags$style(HTML("
-  body {background-color:grey;}
+  body {background-color:#CCFFFF;}
                  #reset{color: white;
-                 background-color:green;}
+                 background-color: orange;}
 
-                 #drap{color:green; background-color:yellow;}
-                  #go{color:green;background-color:white;")
+                 #drap{color:green; background-color:green;}
+                  #go{color:green;background-color:white;
+                ")
 
   )),
 
