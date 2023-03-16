@@ -2,6 +2,16 @@ library(shiny)
 library(shinyjs)
 
 ui <- fluidPage(
+  tags$head(
+  tags$style(HTML("
+  body {background-color:grey;}
+                 #reset{color: white;
+                 background-color:green;}
+
+                 #drap{color:green; background-color:yellow;}
+                  #go{color:green;background-color:white;")
+
+  )),
 
   titlePanel("Démineur"),
 
@@ -18,7 +28,7 @@ ui <- fluidPage(
       numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
 
       actionButton("go","Creuser", icon = icon("trowel")),
-      actionButton("drap","flag 🏳"),
+      actionButton("drap","🚩"),
       textOutput("text")
     ),
 
