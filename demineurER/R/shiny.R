@@ -3,7 +3,7 @@ library(shinyjs)
 
 ui <- fluidPage(
   tags$head(
-  tags$style(HTML("
+    tags$style(HTML("
   body {background-color:#FFCCFF;}
                  #reset{color: white;
                  background-color: #0000FF;}
@@ -12,7 +12,7 @@ ui <- fluidPage(
                   #go{color:red;background-color:white;
                 ")
 
-  )),
+    )),
 
   titlePanel("Démineur"),
 
