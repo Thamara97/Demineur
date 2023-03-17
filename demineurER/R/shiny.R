@@ -30,10 +30,10 @@ ui <- fluidPage(
 
       actionButton("go","Creuser", icon = icon("trowel")),
       actionButton("drap","🚩"),
-      textOutput("bombe")
     ),
 
     mainPanel(
+      textOutput("bombe"),
       textOutput("rslt"),
       hr(),
       tableOutput("board")
@@ -70,7 +70,9 @@ server <- function(input, output, session) {
     values1$c1[values1$n1] <- {input$case}
   })
 
-  resultat <- reactive(gagne(values$c, a_creuser(G())))
+  acreuser <- reactive(a_creuser(G()))
+
+  resultat <- reactive(gagne(values$c, acreuser()))
 
   output$rslt <- renderText(resultat())
 
