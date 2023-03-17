@@ -30,13 +30,13 @@ ui <- fluidPage(
 
       actionButton("go","Creuser", icon = icon("trowel")),
       actionButton("drap","🚩"),
-      textOutput("text")
+      textOutput("bombe")
     ),
 
     mainPanel(
-      useShinyjs(),
-      tableOutput("board0"),
-      tableOutput("board1")
+      textOutput("rslt"),
+      hr(),
+      tableOutput("board")
     )
   )
 )
@@ -52,50 +52,45 @@ server <- function(input, output, session) {
 
   G <- eventReactive(input$reset, {grille(L(), C())})
 
-  output$board0 <- renderTable({
-    board()
-  }, colnames = FALSE)
+  bombe <- eventReactive(input$reset, {nbr_bombe(G())})
+
+  output$bombe <- renderText({paste("Il y a", bombe(), "💣")})
 
   values <- reactiveValues(n = 0, c = c())
 
   observeEvent(input$go, {
-    values$c[values$n] <- {input$case}
     values$n <- values$n +1
-    hide("board0")
-    show("board1")
+    values$c[values$n] <- {input$case}
   })
 
   values1 <- reactiveValues(n1 = 0, c1 = c())
+
   observeEvent(input$drap, {
-    values1$c1[values1$n1] <- {input$case}
     values1$n1 <- values1$n1 +1
+    values1$c1[values1$n1] <- {input$case}
   })
 
-  output$board1 <- renderTable({
+  resultat <- reactive(gagne(values$c, a_creuser(G())))
+
+  output$rslt <- renderText(resultat())
+
+  output$board <- renderTable({
     B <- board()
+    for (y in values1$c1) {
+      B <- drapeau(B,y)
+    }
     for (x in values$c) {
       B <- creuser(B, G(), x)
     }
-    for (y in values1$c1) {
-      B <- drapeau(B,y)
-      }
     return(B)
   },colnames = FALSE)
 
   observeEvent(input$reset, {
-    hide("board1")
-    show("board0")
     values$n <- 0
-    values$c <- c()})
+    values$c <- c()
+    values1$n1 <- 0
+    values1$c1 <- c()})
 
-  bombe <- eventReactive(input$reset, {nbr_bombe(G())})
-
-<<<<<<< HEAD
-  output$text <- renderText({paste0("Il y a ", bombe(), "💣")})
-
-=======
-  output$text <- renderText({paste0("Il y a ", bombe(), " bombes")})
->>>>>>> 003126d416e01eba30cde3a29147952fcfe5bd85
 }
 
 shinyApp(ui, server)
