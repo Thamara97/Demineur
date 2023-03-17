@@ -53,15 +53,24 @@ creuser <- function(plateau, grille, case){
 #' @param case Identifiant de la case où poser ou enlever le drapeau
 #' @return Le plateau de jeu avec un drapeau sur la case sélectionner s'il n'y en avait pas au préalable et sans drapeau sinon.
 #' @export
+<<<<<<< HEAD
 #'
 drapeau <- function(plateau,case) {
   if(plateau[case] ==  paste0("🚩(",case,")")){plateau[case] <- case}
   else{plateau[case] <- paste0("🚩(",case,")")}
+=======
+
+drapeau <- function(plateau,case){
+  if(plateau[case]==  paste0("🚩(",case,")")){plateau[case] <- case}
+  else{plateau[case] <- paste0("🚩(",case,")")
+  }
+>>>>>>> 9d6b950e41036892cc0adac57b2d4002bb529fd6
   return(plateau)
 }
 
 
 
+<<<<<<< HEAD
 #' Liste des case sans bombes dans une grille de démineur
 #'
 #' @param grille Une grille de démineur
@@ -98,3 +107,7 @@ gagne <- function(creuse, acreuser) {
   if (!(FALSE %in% decouvert)) {return("PARTIE GAGNEE ! Encore une ?")}
   else {return("A toi de jouer !")}
 }
+=======
+
+
+>>>>>>> 9d6b950e41036892cc0adac57b2d4002bb529fd6
