@@ -90,12 +90,12 @@ server <- function(input, output, session) {
 
   bombe <- eventReactive(input$reset, {nbr_bombe(G())})
 
-<<<<<<< HEAD
+
   output$text <- renderText({paste0("Il y a ", bombe(), "💣")})
 
-=======
+
   output$text <- renderText({paste0("Il y a ", bombe(), " bombes")})
->>>>>>> 003126d416e01eba30cde3a29147952fcfe5bd85
+
 }
 
 shinyApp(ui, server)
