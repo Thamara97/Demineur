@@ -29,11 +29,12 @@ shinyUI(fluidPage(
 
       actionButton("go","Creuser", icon = icon("trowel")),
       actionButton("drap","🚩"),
-      textOutput("bombe")
+
     ),
 
     mainPanel(
       textOutput("rslt"),
+      textOutput("bombe"),
       hr(),
       tableOutput("board")
     )
