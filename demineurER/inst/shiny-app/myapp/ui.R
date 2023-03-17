@@ -25,7 +25,9 @@ shinyUI(fluidPage(
 
       actionButton("reset", "Nouvelle partie"),
 
-      numericInput('case', "Case à creuser :", 1, min = 1, max = 900),
+      hr(),
+
+      numericInput('case', "Sélectionne une case :", 1, min = 1, max = 900),
 
       actionButton("go","Creuser", icon = icon("trowel")),
       actionButton("drap","🚩"),
