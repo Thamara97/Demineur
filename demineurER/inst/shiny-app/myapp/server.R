@@ -2,8 +2,17 @@ library(shiny)
 
 shinyServer(function(input, output, session) {
 
-  L <- reactive({input$ligne})
-  C <- reactive({input$colonne})
+  L <- reactive(
+    {
+    input$ligne
+    })
+  C <- reactive(
+    {
+    input$colonne
+    })
+  actionstart <- eventReactive(input$Nouvelle-partie, {
+    mine_sweeper(input$ligne, input$colonne, input$reset)
+  })
 
   board <- eventReactive(input$reset, {
     matrix(1:(L()*C()), nrow=L(), ncol=C())
@@ -20,7 +29,8 @@ shinyServer(function(input, output, session) {
   observeEvent(input$go, {
     values$n <- values$n +1
     values$c[values$n] <- {input$case}
-  })
+  }
+  )
 
   values1 <- reactiveValues(n1 = 0, c1 = c())
 
@@ -28,7 +38,6 @@ shinyServer(function(input, output, session) {
     values1$n1 <- values1$n1 +1
     values1$c1[values1$n1] <- {input$case}
   })
-
   acreuser <- reactive(a_creuser(G()))
   resultat <- reactive(gagne(values$c, acreuser()))
 

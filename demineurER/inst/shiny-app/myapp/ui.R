@@ -23,7 +23,7 @@ shinyUI(fluidPage(
 
       sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
 
-      actionButton("reset", "Nouvelle partie"),
+      actionButton("reset", "Nouvelle-partie"),
 
       hr(),
 
