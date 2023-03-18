@@ -100,7 +100,7 @@ gagne <- function(creuse, acreuser) {
 
   for (x in creuse) {if (!(x %in% acreuser)) {return("GAME OVER !")}}
 
-  if (!(FALSE %in% decouvert)) {return("PARTIE GAGNEE ! Encore une ?")}
+  if (!(FALSE %in% decouvert)) {return("BRAVO TU A GAGNEE. Tu veux encore jouer?")}
 
   else {return("A toi de jouer !")}
 }

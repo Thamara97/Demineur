@@ -21,6 +21,7 @@ shinyServer(function(input, output, session) {
   G <- eventReactive(input$reset, {grille(L(), C())})
 
   bombe <- eventReactive(input$reset, {nbr_bombe(G())})
+  #____Afficher le nombre de bombe selon le nombre des lignes et des colonnes
 
   output$bombe <- renderText({paste("Il y a", bombe(), "💣")})
 
