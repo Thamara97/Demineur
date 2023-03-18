@@ -19,7 +19,7 @@ creuser <- function(plateau, grille, case){
   x <- which(plateau==case, arr.ind = TRUE)[1]
   y <- which(plateau==case, arr.ind = TRUE)[2]
 
-  nombre <- c("0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣")
+  nombre <- c("0️⃣","1️⃣","2️⃣","3️⃣","4️⃣"," 5️⃣", "6️⃣", "7️⃣","8️⃣")
 
   if (grille[case] != "💣") {
 
@@ -27,15 +27,16 @@ creuser <- function(plateau, grille, case){
 
     if (grille[case] == "0") {
 
-      taille <- c(max(1, x-1), min(L, x+1), max(1, y-1), min(C, y+1))
+      taille <- c(max(1,x-1), min(L,x+1), max(1,y-1), min(C, y+1))
 
-      g <- grille[taille[1]:taille[2] , taille[3]:taille[4]]
-      p <- plateau[taille[1]:taille[2] , taille[3]:taille[4]]
+      g <- grille[taille[1]:taille[2],taille[3]:taille[4]]
+      p <- plateau[taille[1]:taille[2],taille[3]:taille[4]]
 
       L1 <- nrow(g)
       C1 <- ncol(g)
 
-      for (i in 1:(C1*L1)) {if (g[i]=="0") {p[i] <- "0️⃣"}}
+      for (i in 1:(C1 * L1)
+           ) {if (g[i]=="0") {p[i] <- "0️⃣"}}
 
       plateau[taille[1]:taille[2] , taille[3]:taille[4]] <- p
 
@@ -43,13 +44,11 @@ creuser <- function(plateau, grille, case){
 
     return(plateau)
 
-  }
-
-  else {return(grille)}
+  }else {return(grille)}
 
 }
 
-#' Déposer ou enlever un drapeau dans une grille de démineur
+#' Déposer ou enlever un drapeau dans une grille de démineur pour le mettre à la place des bombes
 #'
 #' @param plateau Un plateau de jeu
 #' @param case Identifiant de la case où poser ou enlever le drapeau

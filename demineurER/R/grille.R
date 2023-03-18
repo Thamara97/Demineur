@@ -1,8 +1,8 @@
-#' Créé une grille de démineur
+#' Créér une grille du jeu démineur
 #'
-#' @param L Un nombre de ligne
-#' @param C Un nombre de colonne
-#' @return Une matrice à L linges, C colonnes
+#' @param L le nombre de ligne
+#' @param C le nombre de colonne
+#' @return Une matrice à L lignes, C colonnes
 #' @example
 #' grille(5,6)
 #' @export
