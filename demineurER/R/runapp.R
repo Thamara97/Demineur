@@ -1,7 +1,9 @@
-#' Lancer l'application shiny "Demineur"
+#' Lancer l'application shiny "demineurER"
+#'
 #'
 #' @return Application shiny
 #' @export
+#' @example runapp()
 
 runapp <- function(){
   appDir <- system.file("shiny-app","myapp",package = "demineurER")
