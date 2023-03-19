@@ -4,11 +4,11 @@ shinyUI(fluidPage(
   #____Couleurs de l'arrière plan et des boutons cliquable
   tags$head(
     tags$style(HTML("
-  body {background-color:#FFCCFF;}
+  body {background-color:#999999;}
                  #reset{color: white;
                  background-color: #0000FF;}
 
-                 #drap{color:green; background-color:yellow}
+                 #drap{color:green; background-color:#CCCCCC}
                   #go{color:red;background-color:white;
                 ")
 
