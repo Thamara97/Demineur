@@ -1,4 +1,4 @@
-#' Creuse une case d'une grille de démineur
+#' @title la fonction qui creuse une case d'une grille de démineur
 #'
 #' @param plateau Un plateau de jeu de la même taille que la grille
 #' @param grille Une grille de démineur
@@ -48,6 +48,7 @@ creuser <- function(plateau, grille, case){
 
 }
 
+#' @title Fonction du plateau
 #' Déposer ou enlever un drapeau dans une grille de démineur pour le mettre à la place des bombes
 #'
 #' @param plateau Un plateau de jeu
@@ -64,6 +65,7 @@ drapeau <- function(plateau,case) {
 
 
 
+#' @title creuser les cases qui contiennent 0
 #' Liste des case sans bombes dans une grille de démineur
 #'
 #' @param grille Une grille de démineur
@@ -85,6 +87,7 @@ a_creuser <- function(grille) {
 }
 
 
+#' @title La fonction pour afficher la victoire et l'echec
 #' Etat de la partie de démineur
 #'
 #' @param creuse Identifiant des cases creusées.
