@@ -8,8 +8,6 @@ L'objectif de notre projet est de créer une bibliothèque sur Rstudio, incluant
 
 Afin de pouvoir afficher l'application shiny il suffit d'installer le package $demineurER.tar.gz$ et appeler la fonction $runapp()$.
 
-Afin de pouvoir afficher l'application shiny il suffit d'installer le package $demineurER.tar.gz$ et appeler la fonction $runapp()$
-
 
 
 
