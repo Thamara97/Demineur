@@ -2,7 +2,8 @@ test_that("Fonction creuser", {
   G <- grille(6, 9)
   P <- matrix(1:(6 * 9), nrow = 6, ncol = 9)
   P <- creuser(P, G, 5)
-  expect_true(P[5] %in% c("0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "💣" ))
+  expect_true(P[5] %in% c("0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣",
+                          "7️⃣", "8️⃣", "💣"))
 })
 
 test_that("Fonction a_creuser", {
@@ -28,17 +29,28 @@ test_that("Enlever drapeau", {
 })
 
 test_that("Annonce victoire", {
+
   acreuser <- 1:8
   plateau <- matrix(1:10, 5)
-  for (i in 1:8) {plateau[i] <- "0️⃣"}
+
+  for (i in 1:8) {
+    plateau[i] <- "0️⃣"
+  }
+
   print(gagne(acreuser, acreuser, plateau))
-  expect_equal(gagne(acreuser, acreuser, plateau), "BRAVO TU A GAGNEE. Tu veux encore jouer?")
+
+  expect_equal(gagne(acreuser, acreuser, plateau), "VICTOIRE !")
 })
 
 test_that("Annonce défaite", {
+
   acreuser <- 1:8
   creuse <- 1:9
   plateau <- matrix(1:10, 5)
-  for (i in 1:8) {P[i] <- "0️⃣"}
-  expect_equal(gagne(c(1,2,26), acreuser, plateau), "GAME OVER !")
+
+  for (i in 1:8) {
+    P[i] <- "0️⃣"
+  }
+
+  expect_equal(gagne(c(1, 2, 26), acreuser, plateau), "GAME OVER !")
 })
