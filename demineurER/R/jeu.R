@@ -148,7 +148,7 @@ gagne <- function(creuse, acreuser, plateau) {
   }
 
   if (!(FALSE %in% decouvert)) {
-    return("BRAVO TU A GAGNEE. Tu veux encore jouer?")
+    return("EXCELLENT 🎉  . Tu veux encore jouer?")
   }
 
   for (x in creuse) {
