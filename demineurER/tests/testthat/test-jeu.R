@@ -23,7 +23,8 @@ test_that("Poser drapeau",
             expect_equal(P[7], paste0("🚩(", 7, ")"))
           })
 
-test_that("Enlever drapeau", {
+test_that("Enlever drapeau",
+          {
   P <- matrix(1:18, nrow = 9)
   P <- drapeau(drapeau(P, 7), 7)
   expect_equal(P[7], "7")
