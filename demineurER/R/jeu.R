@@ -18,8 +18,15 @@ creuser <- function(plateau, grille, case) {
   L <- nrow(plateau)
   C <- nrow(plateau)
 
-  x <- which(plateau == case, arr.ind = TRUE)[1]
-  y <- which(plateau == case, arr.ind = TRUE)[2]
+  if (case %% L == 0) {
+    x <- L
+    y <- case %/% L
+  } else {
+    x <- case %% L
+    y <- case %/% L + 1
+  }
+  # x <- which(plateau == case, arr.ind = TRUE)[1]
+  # y <- which(plateau == case, arr.ind = TRUE)[2]
 
   nombre <- c("0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣")
 

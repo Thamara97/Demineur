@@ -58,5 +58,5 @@ grille <- function(L, C) {
 #' @export
 
 nbr_bombe <- function(grille) {
-  return(sum(grille == "💣"))
+  return(sum(grille == "💣",na.rm = TRUE))
 }
