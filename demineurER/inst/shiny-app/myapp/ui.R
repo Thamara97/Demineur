@@ -1,6 +1,8 @@
 library(shiny)
+library(shinyalert)
 
 shinyUI(fluidPage(
+
   #____Couleurs de l'arrière plan et des boutons cliquable
   tags$head(
     tags$style(HTML("
@@ -39,6 +41,7 @@ shinyUI(fluidPage(
     ),
 
     mainPanel(
+      useShinyalert(),
       textOutput("rslt"),
       textOutput("bombe"),
       hr(),

@@ -54,6 +54,16 @@ shinyServer(function(input, output, session) {
     return(gagne(values$c, acreuser(), B))
     })
 
+  observeEvent(input$go, {
+    B <- board()
+    for (x in values$c) {
+      B <- creuser(B, G(), x)}
+    resultat <- gagne(values$c, acreuser(), B)
+    if (!(is.null(resultat))) {
+      shinyalert(title = "Partie terminée" , text = resultat)
+    }
+  })
+
   output$board <- renderTable({
     B <- board()
     for (y in values1$c1) {
