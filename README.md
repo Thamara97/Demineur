@@ -1,12 +1,18 @@
 # Démineur :
-Bibliothèque pour jouer au démineur
+
+Bibliothèque pour jouer au démineur.
+
 # Objectif du projet :
-L'objectif de notre projet est de créer une bibliothèque sur Rstudio, incluant une application shiny et contenant des fonctions permettant de créer la grille et les drapeaux 
+
+L'objectif de notre projet est de créer une bibliothèque sur Rstudio, incluant une application shiny contenant des fonctions permettant de créer la grille du jeu, les cases à creuser et les drapeaux en indiquant le nombre de bombes.
+
+
+
 
 # Application shiny :
 
 
-Afin de pouvoir afficher l'application shiny il suffit d'installer le package $demineurER.tar.gz$ et appeler la fonction $runapp()$.
+Afin de pouvoir afficher l'application shiny il suffit d'installer le package `demineurER.tar.gz` et appeler la fonction `runapp()`.
 
 
 
