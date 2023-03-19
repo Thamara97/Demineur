@@ -1,15 +1,17 @@
 library(shiny)
 
 shinyUI(fluidPage(
+  tags$style(HTML(".js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {background: BLACK}")),
+  tags$style(HTML(".js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge, .js-irs-1 .irs-bar {background: BLACK}")),
   #____Couleurs de l'arrière plan et des boutons cliquable
   tags$head(
     tags$style(HTML("
-  body {background-color:#999999;}
+  body {background-color:#FF9933;}
                  #reset{color: white;
-                 background-color: #0000FF;}
+                 background-color: GREEN;}
 
-                 #drap{color:green; background-color:#CCCCCC}
-                  #go{color:red;background-color:white;
+                 #drap{color:green; background-color:   }
+                  #go{color:red;background-color:white;}
                 ")
 
     )),
