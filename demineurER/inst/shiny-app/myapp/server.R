@@ -1,6 +1,7 @@
 library(shiny)
 
 shinyServer(function(input, output, session) {
+
   L <- reactive(
     {
     input$ligne
@@ -9,10 +10,7 @@ shinyServer(function(input, output, session) {
     {
     input$colonne
     })
-  actionstart <- eventReactive(input$Nouvelle-partie, {
-    mine_sweeper(input$ligne, input$colonne, input$reset)
-  })
-
+#Afficher le tableau de jeu
   board <- eventReactive(input$reset, {
     matrix(1:(L()*C()), nrow=L(), ncol=C())
   })
@@ -33,7 +31,7 @@ shinyServer(function(input, output, session) {
   )
 
   values1 <- reactiveValues(n1 = 0, c1 = c())
-
+#la fonction du drapeau
   observeEvent(input$drap, {
     values1$n1 <- values1$n1 +1
     values1$c1[values1$n1] <- {input$case}
