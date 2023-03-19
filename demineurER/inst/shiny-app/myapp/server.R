@@ -1,7 +1,6 @@
 library(shiny)
 
 shinyServer(function(input, output, session) {
-
   L <- reactive(
     {
     input$ligne
@@ -60,7 +59,6 @@ shinyServer(function(input, output, session) {
     values$c <- c()
     values1$n1 <- 0
     values1$c1 <- c()})
-
 })
 
 
