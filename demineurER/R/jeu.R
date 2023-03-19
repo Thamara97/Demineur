@@ -105,3 +105,4 @@ gagne <- function(creuse, acreuser) {
 
   else {return("A toi de jouer !")}
 }
+
