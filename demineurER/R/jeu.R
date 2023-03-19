@@ -27,18 +27,16 @@ creuser <- function(plateau, grille, case){
 
     if (grille[case] == "0") {
 
-      taille <- c(max(1,x-1), min(L,x+1), max(1,y-1), min(C, y+1))
+      grille1 <- grille[max(1,x-1):min(L,x+1),max(1,y-1):min(C, y+1)]
+      plateau1 <- plateau[max(1,x-1):min(L,x+1),max(1,y-1):min(C, y+1)]
 
-      g <- grille[taille[1]:taille[2],taille[3]:taille[4]]
-      p <- plateau[taille[1]:taille[2],taille[3]:taille[4]]
-
-      L1 <- nrow(g)
-      C1 <- ncol(g)
+      L1 <- nrow(grille1)
+      C1 <- ncol(grille1)
 
       for (i in 1:(C1 * L1)
-           ) {if (g[i]=="0") {p[i] <- "0️⃣"}}
+      ) {if (grille1[i]!= "💣") {plateau1[i] <- nombre[(as.integer(grille1[i])+1)]}}
 
-      plateau[taille[1]:taille[2] , taille[3]:taille[4]] <- p
+      plateau[max(1,x-1):min(L,x+1),max(1,y-1):min(C, y+1)] <- plateau1
 
     }
 
