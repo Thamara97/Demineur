@@ -2,7 +2,7 @@
 % Please edit documentation in R/jeu.R
 \name{creuser}
 \alias{creuser}
-\title{Creuse une case d'une grille de démineur}
+\title{la fonction qui creuse une case d'une grille de démineur}
 \usage{
 creuser(plateau, grille, case)
 }
@@ -17,7 +17,7 @@ creuser(plateau, grille, case)
 Le plateau de jeu creusé à la case indiqué si ce n'est pas une bombe. La grille de jeu si la case creusée contient une bombe.
 }
 \description{
-Creuse une case d'une grille de démineur
+la fonction qui creuse une case d'une grille de démineur
 }
 \examples{
 Grille <- grille(5,5)

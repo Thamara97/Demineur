@@ -2,7 +2,8 @@
 % Please edit documentation in R/jeu.R
 \name{a_creuser}
 \alias{a_creuser}
-\title{Liste des case sans bombes dans une grille de démineur}
+\title{creuser les cases qui contiennent 0
+Liste des case sans bombes dans une grille de démineur}
 \usage{
 a_creuser(grille)
 }
@@ -13,5 +14,6 @@ a_creuser(grille)
 Un vecteur constitué l'identifiant des cases contenant des bombes dans la grille
 }
 \description{
+creuser les cases qui contiennent 0
 Liste des case sans bombes dans une grille de démineur
 }

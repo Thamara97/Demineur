@@ -2,7 +2,7 @@
 % Please edit documentation in R/runapp.R
 \name{runapp}
 \alias{runapp}
-\title{Lancer l'application shiny "Demineur"}
+\title{Lancer l'application shiny "demineurER"}
 \usage{
 runapp()
 }
@@ -10,5 +10,5 @@ runapp()
 Application shiny
 }
 \description{
-Lancer l'application shiny "Demineur"
+Lancer l'application shiny "demineurER"
 }

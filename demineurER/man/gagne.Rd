@@ -2,7 +2,8 @@
 % Please edit documentation in R/jeu.R
 \name{gagne}
 \alias{gagne}
-\title{Etat de la partie de démineur}
+\title{La fonction pour afficher la victoire et l'echec
+Etat de la partie de démineur}
 \usage{
 gagne(creuse, acreuser)
 }
@@ -15,5 +16,6 @@ gagne(creuse, acreuser)
 Une chaîne de caractère indiquant si la partie est gagnée, perdue ou toujours en cours.
 }
 \description{
+La fonction pour afficher la victoire et l'echec
 Etat de la partie de démineur
 }

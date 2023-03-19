@@ -2,18 +2,18 @@
 % Please edit documentation in R/grille.R
 \name{grille}
 \alias{grille}
-\title{Créé une grille de démineur}
+\title{Créér une grille du jeu démineur}
 \usage{
 grille(L, C)
 }
 \arguments{
-\item{L}{Un nombre de ligne}
+\item{L}{le nombre de ligne}
 
-\item{C}{Un nombre de colonne}
+\item{C}{le nombre de colonne}
 }
 \value{
-Une matrice à L linges, C colonnes
+Une matrice à L lignes, C colonnes
 }
 \description{
-Créé une grille de démineur
+Créér une grille du jeu démineur
 }

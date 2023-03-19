@@ -2,7 +2,8 @@
 % Please edit documentation in R/jeu.R
 \name{drapeau}
 \alias{drapeau}
-\title{Déposer ou enlever un drapeau dans une grille de démineur}
+\title{Fonction du plateau
+Déposer ou enlever un drapeau dans une grille de démineur pour le mettre à la place des bombes}
 \usage{
 drapeau(plateau, case)
 }
@@ -15,5 +16,6 @@ drapeau(plateau, case)
 Le plateau de jeu avec un drapeau sur la case sélectionner s'il n'y en avait pas au préalable et sans drapeau sinon.
 }
 \description{
-Déposer ou enlever un drapeau dans une grille de démineur
+Fonction du plateau
+Déposer ou enlever un drapeau dans une grille de démineur pour le mettre à la place des bombes
 }
