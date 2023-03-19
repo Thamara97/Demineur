@@ -2,14 +2,23 @@ library(shiny)
 
 shinyServer(function(input, output, session) {
 
+<<<<<<< HEAD
   L <- reactive({
+=======
+  L <- reactive(
+    {
+>>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
     input$ligne
     })
 
   C <- reactive({
     input$colonne
     })
+<<<<<<< HEAD
 
+=======
+#Afficher le tableau de jeu
+>>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
   board <- eventReactive(input$reset, {
     matrix(1:(L() * C()), nrow = L(), ncol = C())
   })
@@ -36,7 +45,7 @@ shinyServer(function(input, output, session) {
   })
 
   values1 <- reactiveValues(n1 = 0, c1 = c())
-
+#la fonction du drapeau
   observeEvent(input$drap, {
     values1$n1 <- values1$n1 + 1
     values1$c1[values1$n1] <- {

@@ -151,3 +151,4 @@ gagne <- function(creuse, acreuser, plateau) {
   }
 
 }
+
