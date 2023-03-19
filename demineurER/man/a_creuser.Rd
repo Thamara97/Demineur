@@ -14,8 +14,8 @@ Un vecteur constitué l'identifiant des cases contenant des bombes
 dans la grille
 }
 \description{
-Liste des identifiants de toutes les cases sans bombes dans une grille de
-démineur.
+Liste des identifiants de toutes les cases sans bombes
+dans une grille de démineur.
 }
 \examples{
 g1 <- grille(4,6)

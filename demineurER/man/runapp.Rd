@@ -2,15 +2,16 @@
 % Please edit documentation in R/runapp.R
 \name{runapp}
 \alias{runapp}
-\title{Lancer l'application shiny "demineurER"}
+\title{Afficher le jeu}
 \usage{
 runapp()
 }
 \value{
-Application shiny
+Application shiny "Démineur"
 }
 \description{
-Lancer l'application shiny "demineurER"
+Cette fonction permet de lancer l'application shiny du package
+"demineurER".
 }
 \examples{
 runapp()

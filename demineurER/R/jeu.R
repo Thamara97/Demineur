@@ -25,8 +25,6 @@ creuser <- function(plateau, grille, case) {
     x <- case %% L
     y <- case %/% L + 1
   }
-  # x <- which(plateau == case, arr.ind = TRUE)[1]
-  # y <- which(plateau == case, arr.ind = TRUE)[2]
 
   nombre <- c("0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣")
 
@@ -88,8 +86,8 @@ drapeau <- function(plateau, case) {
 
 
 #' @title Case à creuser dans une grille démineur
-#' @description Liste des identifiants de toutes les cases sans bombes dans une grille de
-#' démineur.
+#' @description Liste des identifiants de toutes les cases sans bombes
+#' dans une grille de démineur.
 #'
 #' @param grille Grille de démineur (matrice contenant des bombes)
 #' @return Un vecteur constitué l'identifiant des cases contenant des bombes
@@ -148,7 +146,11 @@ gagne <- function(creuse, acreuser, plateau) {
   }
 
   if (!(FALSE %in% decouvert)) {
+
     return("EXCELLENT 🎉  . Tu veux encore jouer?")
+
+    return("VICTOIRE !")
+
   }
 
   for (x in creuse) {
@@ -158,4 +160,3 @@ gagne <- function(creuse, acreuser, plateau) {
   }
 
 }
-
