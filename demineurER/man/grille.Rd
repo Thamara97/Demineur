@@ -2,18 +2,24 @@
 % Please edit documentation in R/grille.R
 \name{grille}
 \alias{grille}
-\title{Créér une grille du jeu démineur}
+\title{Grille de démineur}
 \usage{
 grille(L, C)
 }
 \arguments{
-\item{L}{le nombre de ligne}
+\item{L}{Nombre de lignes}
 
-\item{C}{le nombre de colonne}
+\item{C}{Nombre de colonnes}
 }
 \value{
 Une matrice à L lignes, C colonnes
 }
 \description{
-Créér une grille du jeu démineur
+Cette fonction créé une matrice d'un nombre de lignes et de
+colonnes données contenant des bombes et le nombre de bombes autour de
+chaque case vide.
+}
+\examples{
+grille(5,6)
+grille(9,7)
 }

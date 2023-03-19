@@ -12,3 +12,6 @@ Application shiny
 \description{
 Lancer l'application shiny "demineurER"
 }
+\examples{
+runapp()
+}

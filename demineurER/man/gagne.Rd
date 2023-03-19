@@ -2,20 +2,25 @@
 % Please edit documentation in R/jeu.R
 \name{gagne}
 \alias{gagne}
-\title{La fonction pour afficher la victoire et l'echec
-Etat de la partie de démineur}
+\title{Afficher la victoire ou l'échec}
 \usage{
-gagne(creuse, acreuser)
+gagne(creuse, acreuser, plateau)
 }
 \arguments{
-\item{creuse}{Identifiant des cases creusées.}
+\item{creuse}{Identifiant des cases déjà creusées.}
 
-\item{acreuser}{Identifiant des cases à creuser pour gagner la partie.}
+\item{acreuser}{Identifiant de toutes les cases sans bombes.}
 }
 \value{
-Une chaîne de caractère indiquant si la partie est gagnée, perdue ou toujours en cours.
+Une chaîne de caractère indiquant si la partie est gagnée,
+ou perdue.
 }
 \description{
-La fonction pour afficher la victoire et l'echec
-Etat de la partie de démineur
+Cette fonction indique si la partie est gagnée ou perdue.
+}
+\examples{
+G <- grille(8,9)
+acreuser <- a_creuser(G)
+creuse <- c(4,2,15,6,9,20)
+gagne(creuse, acreuser)
 }

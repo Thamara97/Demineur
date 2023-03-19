@@ -2,18 +2,19 @@
 % Please edit documentation in R/grille.R
 \name{nbr_bombe}
 \alias{nbr_bombe}
-\title{Compte le nombre de bombe dans une grille de démineur}
+\title{Nombre de bombe}
 \usage{
 nbr_bombe(grille)
 }
 \arguments{
-\item{grille}{Une grille de démineur}
+\item{grille}{Grille de démineur}
 }
 \value{
-Le nombre de bombe dans la grille de démineur et leur position
+Le nombre de bombe dans la grille de démineur.
 }
 \description{
-Compte le nombre de bombe dans une grille de démineur
+Cette fonction compte le nombre de bombe dans une grille de
+démineur créée avec la fonction **grille**
 }
 \examples{
 Grille <- grille(5,5)
