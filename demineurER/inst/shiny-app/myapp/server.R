@@ -2,23 +2,16 @@ library(shiny)
 
 shinyServer(function(input, output, session) {
 
-<<<<<<< HEAD
+
   L <- reactive({
-=======
-  L <- reactive(
-    {
->>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
     input$ligne
     })
 
   C <- reactive({
     input$colonne
     })
-<<<<<<< HEAD
 
-=======
 #Afficher le tableau de jeu
->>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
   board <- eventReactive(input$reset, {
     matrix(1:(L() * C()), nrow = L(), ncol = C())
   })

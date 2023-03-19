@@ -23,7 +23,7 @@ shinyUI(fluidPage(
 
       sliderInput("ligne", "Nombre de lignes :", 5, min = 4, max = 30),
 
-<<<<<<< HEAD
+
       sliderInput("colonne", "Nombre de colonnes :", 5, min = 4, max = 30),
 
       actionButton("reset", "Nouvelle partie"),
@@ -34,7 +34,7 @@ shinyUI(fluidPage(
 
       actionButton("go", "Creuser", icon = icon("trowel")),
       actionButton("drap", "🚩"),
-=======
+
       sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
 #__________Boutton pour jouer
       actionButton("reset", "Nouvelle-partie"),
@@ -45,7 +45,6 @@ shinyUI(fluidPage(
       actionButton("go","Creuser", icon = icon("trowel")),
 #___________________Drapeau
       actionButton("drap","🚩"),
->>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
 
     ),
 

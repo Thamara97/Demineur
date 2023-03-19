@@ -7,18 +7,11 @@
 #' @examples
 #' runapp()
 
-<<<<<<< HEAD
-runapp <- function() {
+runapp <- function(){
 
-  appDir <- system.file("shiny-app", "myapp", package = "demineurER")
+  appDir <- system.file("shiny-app","myapp",package = "demineurER")
 
   if (appDir == "") {
-=======
-runapp <- function(){
-  appDir <- system.file("shiny-app","myapp",package = "demineurER")
-  if (appDir == "")
-    {
->>>>>>> 6afaa377a9f486a1c2fed6bf97ab35809812b7fb
     stop("Impossible d'insérer l'application.Essayez d'installer 'demineurER'.",
          call. = FALSE)
   }
