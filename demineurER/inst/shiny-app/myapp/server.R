@@ -47,12 +47,7 @@ shinyServer(function(input, output, session) {
   })
 
   acreuser <- reactive(a_creuser(G()))
-  output$rslt <- renderText(
-    {B <- board()
-    for (x in values$c) {
-      B <- creuser(B, G(), x)}
-    return(gagne(values$c, acreuser(), B))
-    })
+
 
   observeEvent(input$go, {
     B <- board()
