@@ -20,7 +20,6 @@ shinyUI(fluidPage(
                   #go{color:red;background-color:white;}
                   #stop{color:green;}
                   #start{color:green;}
-                  #rest{color:red;}}
                 ")
     )
   ),
@@ -51,7 +50,6 @@ shinyUI(fluidPage(
       hr(),
       actionButton('start','Start'),
       actionButton('stop','Stop'),
-      actionButton('rest','Reset'),
       numericInput('seconds','Seconds:',value=10,min=0,max=99999,step=10),
       textOutput('timeleft')
 
