@@ -18,7 +18,6 @@ L'objectif de notre projet est de créer une bibliothèque sur Rstudio, incluant
 
 - Le jeu devient plus difficile quand on augmente le nombre de ligne et de colonnes qui sont modifiables, car les bombes varient selon la taille de la grille.
 
-- 
 
 <p align="center">
 <img src="DEMINEUR.PNG" style="vertical-align:middle" width="600" height='400' class='center'>
