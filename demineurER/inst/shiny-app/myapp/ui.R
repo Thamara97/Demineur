@@ -4,12 +4,13 @@ library(lubridate)
 
 shinyUI(fluidPage(
 
+  # Couleur des slider
   tags$style(HTML(".js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge,
                   .js-irs-0 .irs-bar {background: BLACK}")),
   tags$style(HTML(".js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge,
                   .js-irs-1 .irs-bar {background: BLACK}")),
 
-    #____Couleurs de l'arrière plan et des boutons cliquable
+  # Couleurs de l'arrière plan et des boutons cliquables
   tags$head(
     tags$style(HTML("
   body {background-color:#FF9933;}
@@ -24,7 +25,7 @@ shinyUI(fluidPage(
     )
   ),
 
-  #Titre du jeu
+  # Titre de la page
   titlePanel(HTML("<h1><center><font size=14> Démineur </font></center></h1>"),
              windowTitle = "Démineur"),
 
@@ -38,32 +39,39 @@ shinyUI(fluidPage(
 
       hr(),
 
-
       sliderInput("colonne", "Nombre de colonnes :", 5, min = 4, max = 30),
-      #Boutton pour jouer
+
+      # Bouton pour lancer une nouvelle partie
       actionButton("reset", "Nouvelle partie"),
 
       hr(),
 
-      #numericInput("seconds","secondes :",value=10,min=0,max=99999,step=10),
+      # Boutons pour lancer ou arrêter le chronomètre
       "Chronomètre :",
-      actionButton("start","Start"),
-      actionButton("stop","Stop"),
+      actionButton("start", "Start"),
+      actionButton("stop", "Stop"),
 
       hr(),
 
+      # Identifiant de la case
       numericInput("case", "Sélectionne une case :", 1, min = 1, max = 900),
-        #Bouton pour creuser
+
+      # Bouton pour creuser
       actionButton("go", "Creuser", icon = icon("trowel")),
-        #Drapeau
+
+      # Bouton pour poser/enlever un drapeau
       actionButton("drap", "🚩")
     ),
 
     mainPanel(
+
+      # Indication du nombre de bombe et du temps écoulé
       fluidRow(column(2, textOutput("bombe")),
-               column(2, textOutput("timeleft"), offset = 8)),
+               column(2, textOutput("timeleft"), offset = 7)),
 
       hr(),
+
+      # Affichage du plateau de jeu
       align = "center",
       tableOutput("board")
     )

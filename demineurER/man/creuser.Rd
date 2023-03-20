@@ -7,18 +7,18 @@
 creuser(plateau, grille, case)
 }
 \arguments{
-\item{plateau}{Un plateau de jeu de la même taille que la grille}
+\item{plateau}{(Matrice) Un plateau de jeu.}
 
-\item{grille}{Une grille de démineur}
+\item{grille}{(Matrice) Une grille de démineur.}
 
-\item{case}{L'identifiant de la case à creuser}
+\item{case}{(Entier) L'identifiant de la case à creuser.}
 }
 \value{
 Le plateau de jeu creusé à la case indiqué si ce n'est pas une bombe.
 La grille de jeu si la case creusée contient une bombe.
 }
 \description{
-Cette fonction creuse une case d'une grille de démineur
+Cette fonction creuse une case d'une grille de démineur.
 }
 \examples{
 Grille <- grille(5,5)

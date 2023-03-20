@@ -1,9 +1,8 @@
 #' @title Creuser une grille de démineur
-#' @description  Cette fonction creuse une case d'une grille de démineur
-#'
-#' @param plateau Un plateau de jeu de la même taille que la grille
-#' @param grille Une grille de démineur
-#' @param case L'identifiant de la case à creuser
+#' @description  Cette fonction creuse une case d'une grille de démineur.
+#' @param plateau (Matrice) Un plateau de jeu.
+#' @param grille (Matrice) Une grille de démineur.
+#' @param case (Entier) L'identifiant de la case à creuser.
 #' @return Le plateau de jeu creusé à la case indiqué si ce n'est pas une bombe.
 #' La grille de jeu si la case creusée contient une bombe.
 #' @examples
@@ -12,7 +11,7 @@
 #' creuser(Plateau, Grille, 4)
 #' creuser(Plateau, Grille, 16)
 #' @export
-#'
+
 creuser <- function(plateau, grille, case) {
 
   L <- nrow(plateau)
@@ -57,21 +56,19 @@ creuser <- function(plateau, grille, case) {
 
   } else {
     return(grille)
-    }
-
+  }
 }
+
 
 #' @title Poser/enlever un drapeau
 #' @description Cette fonction permet de déposer ou d'enlever un drapeau dans
 #' une grille de démineur.
-#'
-#' @param plateau Plateau de jeu (un matrice de même dimension que la grille
-#' de démineur)
-#' @param case Identifiant de la case où poser ou enlever le drapeau
+#' @param plateau (Matrice) Un plateau de jeu.
+#' @param case (Entier) L'identifiant de la case où poser/enlever le drapeau
 #' @return Le plateau de jeu avec un drapeau sur la case sélectionner
 #' s'il n'y en avait pas au préalable et sans drapeau sinon.
 #' @export
-#'
+
 drapeau <- function(plateau, case) {
 
   if (plateau[case] ==  paste0("🚩(", case, ")")) {
@@ -84,21 +81,19 @@ drapeau <- function(plateau, case) {
 }
 
 
-
 #' @title Case à creuser dans une grille démineur
 #' @description Liste des identifiants de toutes les cases sans bombes
 #' dans une grille de démineur.
-#'
-#' @param grille Grille de démineur (matrice contenant des bombes)
+#' @param grille (Matrice) Grille de démineur.
 #' @return Un vecteur constitué l'identifiant des cases contenant des bombes
-#' dans la grille
+#' dans la grille.
 #' @examples
 #' g1 <- grille(4,6)
 #' a_creuser(g1)
 #' g2 <- grille(10,10)
 #' a_creuser(g2)
 #' @export
-#'
+
 a_creuser <- function(grille) {
 
   n <- 0
@@ -114,27 +109,28 @@ a_creuser <- function(grille) {
   }
 
   return(position)
+
 }
 
 
 #' @title Afficher la victoire ou l'échec
 #' @description Cette fonction indique si la partie est gagnée ou perdue.
-#'
-#' @param creuse Identifiant des cases déjà creusées.
-#' @param acreuser Identifiant de toutes les cases sans bombes.
+#' @param creuse (Vecteur) L'identifiant des cases déjà creusées.
+#' @param acreuser (Vecteur) L'identifiant de toutes les cases sans bombes.
+#' @param plateau (Matrice) Un plateau de jeu.
 #' @return Une chaîne de caractère indiquant si la partie est gagnée,
 #' ou perdue.
 #' @examples
 #' G <- grille(8,9)
+#' P <- matrix(1:(8*9), nrow = 8, ncol = 9)
 #' acreuser <- a_creuser(G)
 #' creuse <- c(4,2,15,6,9,20)
-#' gagne(creuse, acreuser)
+#' gagne(creuse, acreuser, P)
 #' @export
-#'
+
 gagne <- function(creuse, acreuser, plateau) {
 
   nombre <- c("0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣")
-
   decouvert <- c()
 
   for (x in acreuser) {
@@ -146,11 +142,7 @@ gagne <- function(creuse, acreuser, plateau) {
   }
 
   if (!(FALSE %in% decouvert)) {
-
     return("EXCELLENT 🥳  . Tu veux encore jouer?")
-
-    return("VICTOIRE !")
-
   }
 
   for (x in creuse) {
@@ -158,5 +150,4 @@ gagne <- function(creuse, acreuser, plateau) {
       return("GAME OVER 😕 !")
     }
   }
-
 }

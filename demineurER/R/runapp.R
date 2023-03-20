@@ -1,12 +1,10 @@
-#'@title Afficher le jeu
+#' @title Lancement de l'application
 #' @description Cette fonction permet de lancer l'application shiny du package
 #' "demineurER".
-#'
-#'
 #' @return Application shiny "Démineur"
-#' @export
 #' @examples
 #' runapp()
+#' @export
 
 runapp <- function() {
 

@@ -7,11 +7,11 @@
 a_creuser(grille)
 }
 \arguments{
-\item{grille}{Grille de démineur (matrice contenant des bombes)}
+\item{grille}{(Matrice) Grille de démineur.}
 }
 \value{
 Un vecteur constitué l'identifiant des cases contenant des bombes
-dans la grille
+dans la grille.
 }
 \description{
 Liste des identifiants de toutes les cases sans bombes

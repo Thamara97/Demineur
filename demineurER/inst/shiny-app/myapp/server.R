@@ -1,34 +1,40 @@
-library(shiny)
-
 shinyServer(function(input, output, session) {
 
-  # Initialiser le timer, 10 seconds.
+  # Création du chronomètre
   timer <- reactiveVal()
   active <- reactiveVal(FALSE)
 
-  # Output du temps restant.
-  output$timeleft <- renderText({
-    paste("Temps écoulé : ", seconds_to_period(timer()))
+  # Output du temps écoulé
+  output$timeleft <- renderText({paste("Temps écoulé : ",
+                                       seconds_to_period(timer()))
   })
 
-  # si le timer est activé on avance de 1
+  # Si le chronomètre est activé on avance de 1
   observe({
+
     invalidateLater(2000, session)
+
     isolate({
-      if(active())
-      {
-        timer(timer()+1)
+      if (active()) {
+        timer(timer() + 1)
       }
     })
   })
 
+  # Activation / désactivation / initialisation du chronomètre
+  observeEvent(input$start, {
+    active(TRUE)
+    })
 
-  observeEvent(input$start, {active(TRUE)})
-  observeEvent(input$stop, {active(FALSE)})
-  observeEvent(input$reset, {timer(0)})
+  observeEvent(input$stop, {
+    active(FALSE)
+    })
 
+  observeEvent(input$reset, {
+    timer(0)
+    })
 
-
+  # Taille de la grille
   L <- reactive({
     input$ligne
     })
@@ -37,15 +43,17 @@ shinyServer(function(input, output, session) {
     input$colonne
     })
 
-#____________Afficher le tableau de jeu
+  # Création du plateau de jeu
   board <- eventReactive(input$reset, {
     matrix(1:(L() * C()), nrow = L(), ncol = C())
   })
 
+  # Création de la grille de jeu
   G <- eventReactive(input$reset, {
     grille(L(), C())
     })
 
+  # Indication du nombre de bombe
   bombe <- eventReactive(input$reset, {
     nbr_bombe(G())
     })
@@ -54,6 +62,7 @@ shinyServer(function(input, output, session) {
     paste("Il y a", bombe(), "💣")
     })
 
+  # Cases creusées
   values <- reactiveValues(n = 0, c = c())
 
   observeEvent(input$go, {
@@ -63,8 +72,9 @@ shinyServer(function(input, output, session) {
     }
   })
 
+  # Cases avec/sans drapeau
   values1 <- reactiveValues(n1 = 0, c1 = c())
-#__________la fonction du drapeau
+
   observeEvent(input$drap, {
     values1$n1 <- values1$n1 + 1
     values1$c1[values1$n1] <- {
@@ -72,10 +82,8 @@ shinyServer(function(input, output, session) {
     }
   })
 
-
+  # Annonce de la victoire/défaite et du temps de jeu
   acreuser <- reactive(a_creuser(G()))
-
-
 
   observeEvent(input$go, {
 
@@ -91,29 +99,33 @@ shinyServer(function(input, output, session) {
     if (!(is.null(resultat))) {
       active(FALSE)
       shinyalert(title = "Partie terminée !",
-                 text = paste0(resultat,"\n Temps de jeu : ",
-                          timer(), " secondes"))
+                 text = paste0(resultat, "\n Temps de jeu : ", timer(),
+                               " secondes"))
     }
   })
 
+  # Output du plateau creusé
   output$board <- renderTable({
+
     B <- board()
+
     for (y in values1$c1) {
       B <- drapeau(B, y)
     }
+
     for (x in values$c) {
       B <- creuser(B, G(), x)
     }
+
     return(B)
+
   }, colnames = FALSE, bordered = TRUE, align = "c")
 
+  # Réinitialisation
   observeEvent(input$reset, {
     values$n <- 0
     values$c <- c()
     values1$n1 <- 0
     values1$c1 <- c()
     })
-
-
-
 })
