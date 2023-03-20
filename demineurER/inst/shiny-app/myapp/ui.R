@@ -37,9 +37,16 @@ shinyUI(fluidPage(
       hr(),
 
 
-      sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
+      sliderInput("colonne", "Nombre de colonnes :", 5, min = 4, max = 30),
       #Boutton pour jouer
-      actionButton("reset", "Nouvelle-partie"),
+      actionButton("reset", "Nouvelle partie"),
+
+      hr(),
+
+      #numericInput("seconds","secondes :",value=10,min=0,max=99999,step=10),
+      "Chronomètre :",
+      actionButton("start","Start"),
+      actionButton("stop","Stop"),
 
       hr(),
 
@@ -47,18 +54,13 @@ shinyUI(fluidPage(
         #Bouton pour creuser
       actionButton("go", "Creuser", icon = icon("trowel")),
         #Drapeau
-      actionButton("drap", "🚩"),
-      hr(),
-      numericInput('seconds','secondes :',value=10,min=0,max=99999,step=10),
-      actionButton('start','Start'),
-      actionButton('stop','Stop'),
-      textOutput('timeleft')
-
-
+      actionButton("drap", "🚩")
     ),
 
     mainPanel(
       textOutput("bombe"),
+      br(),
+      textOutput("timeleft", inline = TRUE),
       hr(),
       tableOutput("board")
     )

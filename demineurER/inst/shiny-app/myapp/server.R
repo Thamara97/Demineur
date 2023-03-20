@@ -1,31 +1,32 @@
 library(shiny)
 
 shinyServer(function(input, output, session) {
+
   # Initialiser le timer, 10 seconds.
   timer <- reactiveVal()
   active <- reactiveVal(FALSE)
 
   # Output du temps restant.
   output$timeleft <- renderText({
-    paste("Time left: ", seconds_to_period(timer()))
+    paste("Temps écoulé : ", seconds_to_period(timer()))
   })
 
-  # si le timer est active on avance par 1
+  # si le timer est activé on avance de 1
   observe({
     invalidateLater(2000, session)
     isolate({
       if(active())
       {
-        timer(timer()-1)
-        if(timer()<1)
-        {
-          active(FALSE)
-          showModal(modalDialog(
-            title = "Message important",
-            "Temps terminé 😕 !"
-
-          ))
-        }
+        timer(timer()+1)
+        # if(timer()<1)
+        # {
+        #   active(FALSE)
+        #   showModal(modalDialog(
+        #     title = "Message important",
+        #     "Temps écoulé 😕 !"
+        #
+        #   ))
+        # }
       }
     })
   })
@@ -33,8 +34,7 @@ shinyServer(function(input, output, session) {
 
   observeEvent(input$start, {active(TRUE)})
   observeEvent(input$stop, {active(FALSE)})
-  observeEvent(input$reset, {timer(input$seconds)
-    })
+  observeEvent(input$reset, {timer(0)})
 
 
 
@@ -98,7 +98,10 @@ shinyServer(function(input, output, session) {
     resultat <- gagne(values$c, acreuser, B)
 
     if (!(is.null(resultat))) {
-      shinyalert(title = "Partie terminée", text = resultat)
+      active(FALSE)
+      shinyalert(title = "Partie terminée !",
+                 text = paste0(resultat,"\n Temps de jeu : ",
+                          timer(), " secondes"))
     }
   })
 
