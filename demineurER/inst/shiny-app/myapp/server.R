@@ -18,15 +18,6 @@ shinyServer(function(input, output, session) {
       if(active())
       {
         timer(timer()+1)
-        # if(timer()<1)
-        # {
-        #   active(FALSE)
-        #   showModal(modalDialog(
-        #     title = "Message important",
-        #     "Temps écoulé 😕 !"
-        #
-        #   ))
-        # }
       }
     })
   })
