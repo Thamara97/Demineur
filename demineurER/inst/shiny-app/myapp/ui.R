@@ -32,6 +32,8 @@ shinyUI(fluidPage(
 
     sidebarPanel(
 
+      width = 3,
+
       sliderInput("ligne", "Nombre de lignes :", 5, min = 4, max = 30),
 
       hr(),
@@ -58,10 +60,11 @@ shinyUI(fluidPage(
     ),
 
     mainPanel(
-      textOutput("bombe"),
-      br(),
-      textOutput("timeleft", inline = TRUE),
+      fluidRow(column(2, textOutput("bombe")),
+               column(2, textOutput("timeleft"), offset = 8)),
+
       hr(),
+      align = "center",
       tableOutput("board")
     )
   )

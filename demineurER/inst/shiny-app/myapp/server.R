@@ -114,7 +114,7 @@ shinyServer(function(input, output, session) {
       B <- creuser(B, G(), x)
     }
     return(B)
-  }, colnames = FALSE, bordered = TRUE)
+  }, colnames = FALSE, bordered = TRUE, align = "c")
 
   observeEvent(input$reset, {
     values$n <- 0
