@@ -7,14 +7,14 @@
 nbr_bombe(grille)
 }
 \arguments{
-\item{grille}{Grille de démineur}
+\item{grille}{(Matrice) Une grille de démineur}
 }
 \value{
 Le nombre de bombe dans la grille de démineur.
 }
 \description{
 Cette fonction compte le nombre de bombe dans une grille de
-démineur créée avec la fonction **grille**
+démineur créée avec la fonction grille.
 }
 \examples{
 Grille <- grille(5,5)

@@ -7,9 +7,9 @@
 grille(L, C)
 }
 \arguments{
-\item{L}{Nombre de lignes}
+\item{L}{(Entier) Le nombre de lignes.}
 
-\item{C}{Nombre de colonnes}
+\item{C}{(Entier) Le nombre de colonnes.}
 }
 \value{
 Une matrice à L lignes, C colonnes

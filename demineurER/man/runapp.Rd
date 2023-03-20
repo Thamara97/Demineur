@@ -2,7 +2,7 @@
 % Please edit documentation in R/runapp.R
 \name{runapp}
 \alias{runapp}
-\title{Afficher le jeu}
+\title{Lancement de l'application}
 \usage{
 runapp()
 }

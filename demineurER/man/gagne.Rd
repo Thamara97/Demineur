@@ -7,9 +7,11 @@
 gagne(creuse, acreuser, plateau)
 }
 \arguments{
-\item{creuse}{Identifiant des cases déjà creusées.}
+\item{creuse}{(Vecteur) L'identifiant des cases déjà creusées.}
 
-\item{acreuser}{Identifiant de toutes les cases sans bombes.}
+\item{acreuser}{(Vecteur) L'identifiant de toutes les cases sans bombes.}
+
+\item{plateau}{(Matrice) Un plateau de jeu.}
 }
 \value{
 Une chaîne de caractère indiquant si la partie est gagnée,
@@ -20,7 +22,8 @@ Cette fonction indique si la partie est gagnée ou perdue.
 }
 \examples{
 G <- grille(8,9)
+P <- matrix(1:(8*9), nrow = 8, ncol = 9)
 acreuser <- a_creuser(G)
 creuse <- c(4,2,15,6,9,20)
-gagne(creuse, acreuser)
+gagne(creuse, acreuser, P)
 }

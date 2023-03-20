@@ -7,10 +7,9 @@
 drapeau(plateau, case)
 }
 \arguments{
-\item{plateau}{Plateau de jeu (un matrice de même dimension que la grille
-de démineur)}
+\item{plateau}{(Matrice) Un plateau de jeu.}
 
-\item{case}{Identifiant de la case où poser ou enlever le drapeau}
+\item{case}{(Entier) L'identifiant de la case où poser/enlever le drapeau}
 }
 \value{
 Le plateau de jeu avec un drapeau sur la case sélectionner
