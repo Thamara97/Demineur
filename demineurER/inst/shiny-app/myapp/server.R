@@ -1,7 +1,7 @@
 library(shiny)
 
 shinyServer(function(input, output, session) {
-  # Initialize the timer, 10 seconds, not active.
+  # Initialiser le timer, 10 seconds.
   timer <- reactiveVal()
   active <- reactiveVal(FALSE)
 
@@ -23,13 +23,14 @@ shinyServer(function(input, output, session) {
           showModal(modalDialog(
             title = "Message important",
             "Temps terminé 😕 !"
+
           ))
         }
       }
     })
   })
 
-  # observers for actionbuttons
+
   observeEvent(input$start, {active(TRUE)})
   observeEvent(input$stop, {active(FALSE)})
   observeEvent(input$reset, {timer(input$seconds)
