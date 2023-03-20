@@ -22,7 +22,7 @@ shinyUI(fluidPage(
   ),
 
   #Titre du jeu
-  h1("Démineur "),
+  titlePanel(HTML("<h1><center><font size=14> Démineur </font></center></h1>")),
 
   sidebarLayout(
 
