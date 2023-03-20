@@ -17,6 +17,7 @@ shinyServer(function(input, output, session) {
     isolate({
       if(active())
       {
+<<<<<<< HEAD
         timer(timer()+1)
         # if(timer()<1)
         # {
@@ -27,6 +28,19 @@ shinyServer(function(input, output, session) {
         #
         #   ))
         # }
+=======
+        timer(timer()-1)
+        if(timer()<1)
+        {
+          active(FALSE)
+          showModal(modalDialog(
+            title = "Message important",
+            "Temps terminé 😕 !"
+
+
+          ))
+        }
+>>>>>>> 2c7273c3cf777e73bf377218abb8a3a816cf22a3
       }
     })
   })
