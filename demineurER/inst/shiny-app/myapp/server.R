@@ -10,7 +10,7 @@ shinyServer(function(input, output, session) {
     paste("Time left: ", seconds_to_period(timer()))
   })
 
-  # observer that invalidates every second. If timer is active, decrease by one.
+  # si le timer est active on avance par 1
   observe({
     invalidateLater(2000, session)
     isolate({
@@ -21,8 +21,8 @@ shinyServer(function(input, output, session) {
         {
           active(FALSE)
           showModal(modalDialog(
-            title = "Important message",
-            "Countdown completed!"
+            title = "Message important",
+            "Temps terminé 😕 !"
           ))
         }
       }
