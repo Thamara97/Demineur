@@ -12,7 +12,7 @@ shinyServer(function(input, output, session) {
 
   # observer that invalidates every second. If timer is active, decrease by one.
   observe({
-    invalidateLater(10, session)
+    invalidateLater(2000, session)
     isolate({
       if(active())
       {
