@@ -1,5 +1,6 @@
 library(shiny)
 library(shinyalert)
+library(lubridate)
 
 shinyUI(fluidPage(
 
@@ -17,6 +18,9 @@ shinyUI(fluidPage(
 
                  #drap{color:green; background-color:   }
                   #go{color:red;background-color:white;}
+                  #stop{color:green;}
+                  #start{color:green;}
+                  #rest{color:red;}}
                 ")
     )
   ),
@@ -44,6 +48,13 @@ shinyUI(fluidPage(
       actionButton("go", "Creuser", icon = icon("trowel")),
         #Drapeau
       actionButton("drap", "🚩"),
+      hr(),
+      actionButton('start','Start'),
+      actionButton('stop','Stop'),
+      actionButton('rest','Reset'),
+      numericInput('seconds','Seconds:',value=10,min=0,max=99999,step=10),
+      textOutput('timeleft')
+
 
     ),
 
