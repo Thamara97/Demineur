@@ -155,7 +155,7 @@ gagne <- function(creuse, acreuser, plateau) {
 
   for (x in creuse) {
     if (!(x %in% acreuser)) {
-      return("GAME OVER !")
+      return("GAME OVER 😕 !")
     }
   }
 
