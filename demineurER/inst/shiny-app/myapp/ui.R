@@ -48,9 +48,9 @@ shinyUI(fluidPage(
         #Drapeau
       actionButton("drap", "🚩"),
       hr(),
+      numericInput('seconds','secondes :',value=10,min=0,max=99999,step=10),
       actionButton('start','Start'),
       actionButton('stop','Stop'),
-      numericInput('seconds','Seconds:',value=10,min=0,max=99999,step=10),
       textOutput('timeleft')
 
 
