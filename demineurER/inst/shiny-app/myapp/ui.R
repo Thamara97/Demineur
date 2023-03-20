@@ -22,7 +22,7 @@ shinyUI(fluidPage(
   ),
 
   #Titre du jeu
-  h1("Démineur 💣"),
+  h1("Démineur "),
 
   sidebarLayout(
 
@@ -36,11 +36,6 @@ shinyUI(fluidPage(
       sliderInput('colonne', "Nombre de colonnes :", 5, min = 4, max = 30),
       #Boutton pour jouer
       actionButton("reset", "Nouvelle-partie"),
-
-      sliderInput("colonne", "Nombre de colonnes :", 5, min = 4, max = 30),
-      #Bouton pour jouer
-      actionButton("reset", "Nouvelle partie"),
-
 
       hr(),
 
