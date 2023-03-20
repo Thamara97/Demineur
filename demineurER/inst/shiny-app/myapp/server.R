@@ -29,7 +29,7 @@ shinyServer(function(input, output, session) {
     })
   })
 
-  # observers for actionbuttons
+
   observeEvent(input$start, {active(TRUE)})
   observeEvent(input$stop, {active(FALSE)})
   observeEvent(input$reset, {timer(input$seconds)
