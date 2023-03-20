@@ -16,11 +16,14 @@ Le jeu devient plus difficile quand on augmente le nombre de ligne et de colonne
 <p align="center">
 <img src="Capturejeu.PNG" style="vertical-align:middle" width="500" height='400' class='center'>
 </p>
-
+Si on gagne on affiche "EXCELLENT"
+<p align="center">
+<img src="partiegagné.PNG" style="vertical-align:middle" width="600" height='400' class='center'>
+</p>
 Si on perd ça nous affiche "GAME OVER !"
 
 <p align="center">
-<img src="démineur.PNG" style="vertical-align:middle" width="500" height='400' class='center'>
+<img src="perdue.PNG" style="vertical-align:middle" width="600" height='400' class='center'>
 </p>
 
 
