@@ -17,10 +17,13 @@ L'objectif de notre projet est de créer une bibliothèque sur Rstudio, incluant
 <p align="center">
 <img src="DEMINEUR.PNG" style="vertical-align:middle" width="600" height='400' class='center'>
 </p>
+
 - Si le joueur gagne on affiche "EXCELLENT"
+
 <p align="center">
 <img src="VICTOIRE.PNG" style="vertical-align:middle" width="600" height='400' class='center'>
-</p>
+</p> 
+
 - Si le joueur perd ça nous affiche "GAME OVER !"
 
 <p align="center">
